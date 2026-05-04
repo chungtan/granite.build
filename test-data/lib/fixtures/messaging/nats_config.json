@@ -1,0 +1,6 @@
+{
+  "servers": ["nats://localhost:4222"],
+  "stream_name": "mock-stream",
+  "subject": "mock.subject",
+  "consumer_name": "mock-consumer"
+}

@@ -1,0 +1,8 @@
+{
+  "exists": true,
+  "name": "main",
+  "commit": {
+    "sha": "abc123def456789",
+    "url": "https://api.github.com/repos/mock-owner/mock-repo/commits/abc123def456789"
+  }
+}

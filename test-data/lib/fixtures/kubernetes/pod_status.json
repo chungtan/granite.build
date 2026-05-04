@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "name": "mock-pod-001",
+    "namespace": "granite-build",
+    "uid": "aaaabbbb-cccc-dddd-eeee-ffffffffffff"
+  },
+  "status": {
+    "phase": "Succeeded",
+    "conditions": [
+      {
+        "type": "Ready",
+        "status": "True"
+      }
+    ],
+    "container_statuses": [
+      {
+        "name": "main",
+        "state": {
+          "terminated": {
+            "exit_code": 0,
+            "reason": "Completed"
+          }
+        },
+        "ready": false
+      }
+    ]
+  }
+}

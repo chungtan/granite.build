@@ -1,0 +1,10 @@
+{
+  "id": "mock-org/mock-model",
+  "modelId": "mock-org/mock-model",
+  "sha": "abcdef1234567890",
+  "pipeline_tag": "text-generation",
+  "library_name": "transformers",
+  "tags": ["pytorch", "llm"],
+  "downloads": 100,
+  "likes": 10
+}

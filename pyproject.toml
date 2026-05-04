@@ -1,0 +1,169 @@
+[project]
+name = "granite-build-tools"
+version = "0.3.0"
+authors = [
+    { name = "Akash Nayak", email = "akash.nayak1@ibm.com" },
+    { name = "Alexei Karve", email = "karve@us.ibm.com" },
+    { name = "Anubhav Jana", email = "Anubhav.Jana97@ibm.com" },
+    { name = "Ashok Pon Kumar", email = "ashokponkumar@in.ibm.com" },
+    { name = "Constantin Adam", email = "cmadam@us.ibm.com" },
+    { name = "David Wood", email = "dawood@us.ibm.com" },
+    { name = "Harikrishnan Balagopal", email = "harikrishnan.balagopal@ibm.com" },
+    { name = "Kimberly Lang", email = "kclang@us.ibm.com" },
+    { name = "Petros Zerfos", email = "pzerfos@us.ibm.com" },
+    { name = "Taiga Nakamura", email = "taiga@us.ibm.com" },
+    { name = "Yan Koyfman", email = "koyfman@us.ibm.com" },
+    { name = "Yuan Chi Chang", email = "yuanchi@us.ibm.com" },
+]
+description = "LLM.Build / Granite.Build orchestration server and CLI"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+# <3.14 otherwise cmake seems to be invoked (on mac) - 2/18/26
+requires-python = ">=3.11,<3.14"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+# Default install includes both server and CLI dependencies.
+dependencies = [
+    # CLI and web framework
+    "click",
+    "fastapi[standard]",
+    "uvicorn",
+    "python-multipart",
+    # Data and serialization
+    "pandas",
+    "pyarrow>=17",
+    "pydantic==2.11.10",
+    "PyYAML",
+    "Jinja2",
+    "jsonschema",
+    "jsonpatch",
+    "aiohttp>=3.8.0",
+    # Storage
+    "sqlalchemy",
+    "sqlite_database",
+    # Git and networking
+    "giturlparse",
+    "GitPython",
+    "huggingface-hub",
+    "requests",
+    # Utilities
+    "dateparser",
+    "filelock",
+    "humanize",
+    "openai",
+    "packaging",
+    "portalocker[redis]",
+    "pytz",
+    "rich",
+    "tabulate",
+    "toml",
+    "tqdm",
+    "tenacity",
+    "python-dotenv",
+    "xxhash",
+    # Authentication
+    "PyJWT[crypto]>=2.8.0",
+]
+
+[project.optional-dependencies]
+# Tier 1: Standalone — minimal, no external services needed
+standalone = [
+    "nats-py",
+]
+# Tier 2: Third-party open-source — installable from PyPI, testable in GH Actions
+thirdparty = [
+    "docker>=7.0.0",
+    "wandb",
+]
+# Tier 3: IBM-specific — requires IBM infrastructure (cloud, cluster, Artifactory)
+ibm = [
+    "aio-pika",
+    "aiormq",
+    "aspera==v1.1.6",
+    "asyncssh",
+    "daft",
+    "dmf-lib==1.10.2",
+    "ibm_cloud_sdk_core==3.24.1",
+    "ibm_secrets_manager_sdk",
+    "kubernetes_asyncio",
+    "psycopg2-binary",
+    "skypilot[kubernetes]>=0.11.2",
+]
+# All optional dependencies
+all = [
+    "granite-build-tools[standalone,thirdparty,ibm]",
+]
+# Development tools
+dev = [
+    "black",
+    "coverage",
+    "isort",
+    "mypy",
+    "pre-commit",
+    "psutil",
+    "pylint",
+    "pytest",
+    "pytest-asyncio",
+    "pytest-cov",
+    "pytest-xdist",
+    "pydantic-2-mermaid",
+    "twine",
+]
+
+[project.scripts]
+# gbserver scripts
+gbserver = "gbserver.cli:gbserver"
+# gbcli scripts
+gbcli = "gbcli.cli:gbcli"
+gb = "gbcli.cli:gbcli"
+llmbuild = "gbcli.cli:gbcli"
+llmb = "gbcli.cli:gbcli"
+lamb = "gbcli.cli:gbcli"
+
+[project.urls]
+Homepage = "https://github.com/ibm-granite/granite.build"
+Issues = "https://github.com/ibm-granite/granite.build/issues"
+
+[build-system]
+requires = ["setuptools", "setuptools_scm", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src", "test"]
+
+[tool.setuptools.package-data]
+"*" = ["*", ".*"]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format ="[%(asctime)s %(levelname)-5s][%(filename)20s:%(lineno)3s %(funcName)25s()] %(message)s"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+markers = [
+    "standalone: tests requiring only standalone deps (no external services)",
+    "thirdparty: tests requiring third-party open-source deps (testable in GH Actions)",
+    "ibm: tests requiring IBM infrastructure (cloud, cluster, lakehouse, rabbitmq, etc.)",
+    "secret_manager: tests requiring IBM Cloud Secret Manager",
+    "nats_server: tests requiring a running NATS server",
+    "docker_required: tests requiring Docker/Podman daemon",
+    "staging: tests running in staging",
+    "prod: tests running in prod",
+    "slow: tests that run for longer",
+    "hf_integration: tests that perform real integration with HuggingFace Hub",
+    "live: opt specific services into live mode (e.g. @pytest.mark.live('storage', 'github'))",
+]
+testpaths = ["test/unit", "test/integration", "test/e2e"]
+norecursedirs = [".venv", ".git", "dist", "__pycache__", "*.egg-info"]
+pythonpath = [
+  ".", "src", "test",
+]
+filterwarnings = [
+    "ignore:.*enablePackrat.*",
+]

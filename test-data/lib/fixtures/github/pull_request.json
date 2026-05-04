@@ -1,0 +1,16 @@
+{
+  "number": 1,
+  "state": "open",
+  "title": "Mock PR",
+  "head": {
+    "ref": "feature-branch",
+    "sha": "abc123def456789"
+  },
+  "base": {
+    "ref": "main",
+    "sha": "000111222333444"
+  },
+  "user": {
+    "login": "mock-test-user"
+  }
+}
