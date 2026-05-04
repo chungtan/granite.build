@@ -1,12 +1,12 @@
 from abc import abstractmethod
 from typing import Self
 
+from lakehouse.api import JobStats
 from lib.storage.artifact_storage import ArtifactStorageTestSupport
 from lib.storage.build_storage import BuildStorageTestSupport
 from lib.storage.step_storage import StepStorageTestSupport
 from lib.storage.target_storage import TargetStorageTestSupport
 from lib.test_utils import AbstractSingletonStorageUsingTest
-from lakehouse.api import JobStats
 
 from gbcommon.uri.lh import LhURI
 from gbserver.lineage.lakehouse_jobstats import LakehouseLineageStore as JobStatsStorage

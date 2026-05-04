@@ -15,8 +15,9 @@
 # limitations under the License.
 
 
-from gbserver.utils.utils_k8s import is_helm_v4_or_higher
 import pytest
+
+from gbserver.utils.utils_k8s import is_helm_v4_or_higher
 
 pytestmark = pytest.mark.ibm
 

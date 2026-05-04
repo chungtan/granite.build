@@ -1,5 +1,6 @@
-from gbserver.spacesecretmanager.localspacesecretmanager import LocalSpaceSecretManager
 import pytest
+
+from gbserver.spacesecretmanager.localspacesecretmanager import LocalSpaceSecretManager
 
 pytestmark = pytest.mark.ibm
 

@@ -1,10 +1,10 @@
 import os
 
 import pytest
-from lib.buildwatcher.buildtest import AbstractBuildTest, ClassTestedEnum
 from integration.ibm.buildwatcher.test_buildrunner_1step import (
     OneStepCPUDownloadTestConfig,
 )
+from lib.buildwatcher.buildtest import AbstractBuildTest, ClassTestedEnum
 from lib.constants import extended_testing_only
 
 pytestmark = pytest.mark.ibm

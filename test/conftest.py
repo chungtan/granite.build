@@ -48,6 +48,7 @@ if not _can_import("psutil"):
 
 if not _can_import("kubernetes_asyncio"):
     collect_ignore.append("unit/resilience/test_k8s_retry.py")
+    collect_ignore.append("integration/ibm/environment/test_k8s_raycluster_cleanup.py")
 
 if not _can_import("asyncssh"):
     collect_ignore.append("integration/ibm/utils/test_ssh_tunnel.py")
@@ -406,7 +407,6 @@ from unittest.mock import AsyncMock, MagicMock, patch  # noqa: E402
 
 from lib.fixture_loader import load_fixture  # noqa: E402
 from lib.test_mode import should_use_live  # noqa: E402
-
 
 # ---------------------------------------------------------------------------
 # a. Storage — mock = SQLite, live = whatever the test class chooses

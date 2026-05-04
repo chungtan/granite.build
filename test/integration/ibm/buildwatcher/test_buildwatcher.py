@@ -2,15 +2,15 @@ import os
 from abc import abstractmethod
 
 import pytest
-from lib.buildwatcher.buildtest import (
-    AbstractBuildTest,
-    BuildTestSpecification,
-    ClassTestedEnum,
-)
 from integration.ibm.buildwatcher.test_buildrunner_1step import (
     InvalidBuildTestConfig,
     OneStepCPUDownloadTestConfig,
     OneStepGPUDownloadTestConfig,
+)
+from lib.buildwatcher.buildtest import (
+    AbstractBuildTest,
+    BuildTestSpecification,
+    ClassTestedEnum,
 )
 from lib.constants import extended_testing_only
 

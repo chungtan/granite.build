@@ -25,6 +25,7 @@ from lib.storage.utils import (
     connect_and_store_build,
 )
 
+from gbserver.api.auth import get_gh_user
 from gbserver.api.builds import (
     BuildStatus2,
     BuildStatusResponse2,
@@ -39,7 +40,6 @@ from gbserver.api.builds import (
     ListBuildResponse,
     TargetRecord2,
 )
-from gbserver.api.auth import get_gh_user
 from gbserver.api.utils import ListAppendOrSet
 from gbserver.storage.artifact_registration import ArtifactRegistration
 from gbserver.storage.stored_build import StoredBuild

@@ -1,6 +1,7 @@
+import pytest
+
 from gbserver.storage.artifact_registration import ArtifactRegistration
 from gbserver.types.artifact import ArtifactType
-import pytest
 
 pytestmark = pytest.mark.ibm
 

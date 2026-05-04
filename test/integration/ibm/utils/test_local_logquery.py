@@ -18,6 +18,8 @@ import json
 from datetime import datetime
 from unittest.mock import MagicMock, patch
 
+import pytest
+
 from gbserver.storage.stored_event import StoredEvent
 from gbserver.types.buildevent import (
     BuildEvent,
@@ -27,7 +29,6 @@ from gbserver.types.buildevent import (
 )
 from gbserver.types.logs import Item, LogqueryResponse, QueryDef, QueryParams
 from gbserver.utils.local_logquery import LocalLogQueryAPI
-import pytest
 
 pytestmark = pytest.mark.ibm
 

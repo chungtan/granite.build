@@ -6,7 +6,6 @@ from gbserver.github.myghapi import MyGHApi
 from gbserver.types.constants import DEFAULT_GH_API_ENDPOINT
 
 
-
 @pytest.mark.ibm
 def test_branch_exists():
     mygit = MyGHApi(
