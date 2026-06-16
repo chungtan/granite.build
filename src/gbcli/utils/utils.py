@@ -417,7 +417,7 @@ def get_artifact_lineage_url(decoded_artifact, artifact_id):
             revision = decoded_artifact.model_revision
             return f"{DMF_URL}/v2/models/detail/{namespace}/{table}/{model_label}/{revision}"
         case "fileset":
-            return f"{DMF_URL}/gb/artifacts/{artifact_id}"
+            return f"{DMF_URL}/artifacts/{artifact_id}"
         case "dataset":
             dataset = decoded_artifact.dataset_name
             return f"{DMF_URL}/v2/datasets/detail/{namespace}/{table}/{dataset}"
@@ -628,7 +628,7 @@ def get_artifact_uuid(github_token: str, uri: str, callback=None):
 
 
 def get_build_lineage_url(build_id: str):
-    url = f"{DMF_URL}/gb/builds/{build_id}"
+    url = f"{DMF_URL}/builds/{build_id}"
 
     if gb_environment_config().env == "DEV":
         url = url + "?gb_environment=DEV"

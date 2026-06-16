@@ -112,7 +112,7 @@ def get_build_status_link(build_id: str) -> str:
     dmf_ui = GB_ENVIRONMENT_CONFIG.dmf_ui
     if not dmf_ui:
         return "(lineage is not available in standalone mode)"
-    return f"{dmf_ui}/gb/builds/{build_id}"
+    return f"{dmf_ui}/builds/{build_id}"
 
 
 def get_dashboard_link(build_id: str) -> str:
