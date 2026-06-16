@@ -1457,7 +1457,7 @@ def _lineage_lh(ctx, artifact_client, artifact, format, quiet, echo_callback):
 
         click.echo("\n\n" + lineage_table)
 
-    artifact_lineage_url = get_artifact_lineage_url(decoded_artifact, artifact["uuid"])
+    artifact_lineage_url = get_artifact_lineage_url(artifact["uuid"])
 
     if artifact_lineage_url is not None and not quiet:
         click.echo(f"\nView the lineage visually at: {artifact_lineage_url}")

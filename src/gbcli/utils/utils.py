@@ -406,25 +406,8 @@ def get_artifact_formatted_name(decoded_artifact: DecodedURIResponse):
             return None
 
 
-def get_artifact_lineage_url(decoded_artifact, artifact_id):
-    type = decoded_artifact.type
-    namespace = decoded_artifact.namespace
-    table = decoded_artifact.table_name
-
-    match type:
-        case "model":
-            model_label = decoded_artifact.model_label
-            revision = decoded_artifact.model_revision
-            return f"{DMF_URL}/v2/models/detail/{namespace}/{table}/{model_label}/{revision}"
-        case "fileset":
-            return f"{DMF_URL}/artifacts/{artifact_id}"
-        case "dataset":
-            dataset = decoded_artifact.dataset_name
-            return f"{DMF_URL}/v2/datasets/detail/{namespace}/{table}/{dataset}"
-        case "table":
-            return f"{DMF_URL}/v2/lakehouse/{namespace}/{table}/details"
-
-    return None
+def get_artifact_lineage_url(artifact_id):
+    return f"{DMF_URL}/artifacts/{artifact_id}"
 
 
 def parse_artifact_identifier(identifier: str):
@@ -628,12 +611,7 @@ def get_artifact_uuid(github_token: str, uri: str, callback=None):
 
 
 def get_build_lineage_url(build_id: str):
-    url = f"{DMF_URL}/builds/{build_id}"
-
-    if gb_environment_config().env == "DEV":
-        url = url + "?gb_environment=DEV"
-
-    return url
+    return f"{DMF_URL}/builds/{build_id}"
 
 
 def custom_parse_markdown_str(markdown_str: str) -> str:
