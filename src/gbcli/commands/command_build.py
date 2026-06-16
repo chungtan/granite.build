@@ -35,8 +35,8 @@ from gbcli.utils.gbconstants import (
     BUILD_STATUS_HISTORY_HEADERS,
     BUILD_STATUS_STEPS_HEADERS,
     CLIPBOARD_CHAR,
-    DMF_URL,
     PROJECT_NAME,
+    WEB_UI_URL,
 )
 from gbcli.utils.gbcredentials import get_user_token
 from gbcli.utils.lh_auth import AuthException
@@ -107,7 +107,7 @@ def execution_status_plain_output(
 - **Status**: {get_status_emoji(details['status'])} {str(details['status']).upper()}
 - **Started**: {datetime_to_string(details['started_at'])}
 - **Updated**: {datetime_to_string(details['updated_at'])}
-- **Status page**: <{DMF_URL}/builds/{details['build_id']}>
+- **Status page**: <{WEB_UI_URL}/builds/{details['build_id']}>
 - **Build PR**: {source_pr}
 - **Targets**
 {"".join(targets_overview)}
@@ -689,7 +689,7 @@ def start(
                 if parse_build_identifier(requested_build_url) == "uuid"
                 else "BUILD_ID"
             )
-            details_page = f"{DMF_URL}/builds/{requested_build_url}"
+            details_page = f"{WEB_UI_URL}/builds/{requested_build_url}"
             if not quiet:
                 click.echo(
                     f"✅ Requested build: {details_page if show_build_id != 'BUILD_ID' else requested_build_url}"

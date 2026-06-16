@@ -106,10 +106,10 @@ def random_string(length: int = 8):
 
 def get_build_status_link(build_id: str) -> str:
     """Get the link to the build status/lineage given the build ID."""
-    dmf_ui = GB_ENVIRONMENT_CONFIG.dmf_ui
-    if not dmf_ui:
+    web_ui_url = GB_ENVIRONMENT_CONFIG.web_ui_url
+    if not web_ui_url:
         return "(lineage is not available in standalone mode)"
-    return f"{dmf_ui}/builds/{build_id}"
+    return f"{web_ui_url}/builds/{build_id}"
 
 
 def get_dashboard_link(build_id: str) -> str:

@@ -163,8 +163,7 @@ View the list of both unrestricted use and restricted-use models in the project 
 For any help on how to use each option in more details see `llmb artifact push --help`. For more information, ask a question in the `#llm-dot-build-users` channel."""
 
 
-# DMF
-DMF_URL = gb_environment_config().dmf_ui
+WEB_UI_URL = gb_environment_config().web_ui_url
 
 # for tabulate
 ARTIFACT_LINEAGE_DEFAULT_HEADERS = [

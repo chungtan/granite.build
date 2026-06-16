@@ -39,8 +39,8 @@ from tqdm import tqdm
 from gbcli.utils.cli_config import get_local_build_cache
 from gbcli.utils.gbconstants import (
     BUILD_LOG_DEFAULT_QUERY_RANGE,
-    DMF_URL,
     GBSERVER_ARTIFACT_API,
+    WEB_UI_URL,
     SPACE_REPO_NAME,
     SPACE_REPO_ORG,
 )
@@ -407,7 +407,7 @@ def get_artifact_formatted_name(decoded_artifact: DecodedURIResponse):
 
 
 def get_artifact_lineage_url(artifact_id):
-    return f"{DMF_URL}/artifacts/{artifact_id}"
+    return f"{WEB_UI_URL}/artifacts/{artifact_id}"
 
 
 def parse_artifact_identifier(identifier: str):
@@ -611,7 +611,7 @@ def get_artifact_uuid(github_token: str, uri: str, callback=None):
 
 
 def get_build_lineage_url(build_id: str):
-    return f"{DMF_URL}/builds/{build_id}"
+    return f"{WEB_UI_URL}/builds/{build_id}"
 
 
 def custom_parse_markdown_str(markdown_str: str) -> str:
