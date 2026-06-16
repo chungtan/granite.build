@@ -7,6 +7,7 @@ from typing import Dict
 
 import click
 from fastapi import HTTPException
+from tabulate import tabulate
 from tqdm import tqdm
 
 from gbcli.client.client import GBClient

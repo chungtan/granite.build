@@ -617,7 +617,14 @@ def build_cancel(
 def build_lineage_lh(
     github_token: str, token: str, build_id: str, id_format: str, callback=None
 ):
-    from lakehouse import LakehouseLineage
+    try:
+        from lakehouse import LakehouseLineage
+    except ModuleNotFoundError:
+        raise Exception(
+            "The dmf-lib package is required for build lineage. "
+            "Install it with:\n"
+            "  pip install --upgrade 'git+ssh://git@github.ibm.com/arc/dmf-library.git@v1.10.2'"
+        )
 
     if not github_token:
         raise Exception(USER_NOT_LOGGED_IN_ERROR_MESSAGE)
