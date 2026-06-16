@@ -29,17 +29,14 @@ from pathlib import Path
 from typing import Any, Dict, List, Tuple, Union
 from uuid import uuid4
 
+import requests
 import yaml
 
+from gbserver.types.constants import GB_ENVIRONMENT_CONFIG
 from gbserver.types.localsecretsconfig import SpacesConfig
 from gbserver.utils.logger import get_logger
 
 logger = get_logger(__name__)
-
-
-import requests
-
-from gbserver.types.constants import GB_ENVIRONMENT_CONFIG
 
 
 def get_uuid() -> str:
