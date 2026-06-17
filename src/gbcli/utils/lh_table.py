@@ -27,9 +27,7 @@ def createTableFromFile(
         from lakehouse.core import TableDetails
     except ModuleNotFoundError:
         raise Exception(
-            "The dmf-lib package is required. "
-            "Install it with:\n"
-            "  pip install --upgrade 'git+ssh://git@github.ibm.com/arc/dmf-library.git@v1.10.2'"
+            "Error: The dmf-lib package is required. Install it with 'pip install dmf-lib' or contact your administrator for access."
         )
 
     table_details = TableDetails(namespace=namespace, name=table_name, is_public=public)

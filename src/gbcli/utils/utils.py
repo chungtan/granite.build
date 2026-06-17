@@ -406,10 +406,6 @@ def get_artifact_formatted_name(decoded_artifact: DecodedURIResponse):
             return None
 
 
-def get_artifact_lineage_url(artifact_id):
-    return f"{WEB_UI_URL}/artifacts/{artifact_id}"
-
-
 def parse_artifact_identifier(identifier: str):
     uuid_format = re.compile(
         r"^[a-z0-9]*-[a-z0-9]*-[a-z0-9]*-[a-z0-9]*-[a-z0-9]*$",
