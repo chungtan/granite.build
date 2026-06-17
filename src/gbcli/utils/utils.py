@@ -40,9 +40,9 @@ from gbcli.utils.cli_config import get_local_build_cache
 from gbcli.utils.gbconstants import (
     BUILD_LOG_DEFAULT_QUERY_RANGE,
     GBSERVER_ARTIFACT_API,
-    WEB_UI_URL,
     SPACE_REPO_NAME,
     SPACE_REPO_ORG,
+    WEB_UI_URL,
 )
 from gbcli.utils.gbserver import get_artifacts, make_gbserver_call
 from gbcli.utils.gh_auth import get_user
