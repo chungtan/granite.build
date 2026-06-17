@@ -477,7 +477,8 @@ def push(
                 click.echo(f"(2/{total_steps}) Obtaining HuggingFace token.")
             hf_token = GBClient.Auth().hf_token()
             if not hf_token:
-                click.echo("❌ HuggingFace authentication failed. Please check your HuggingFace credentials and try again.",
+                click.echo(
+                    "❌ HuggingFace authentication failed. Please check your HuggingFace credentials and try again.",
                     err=True,
                 )
                 return
